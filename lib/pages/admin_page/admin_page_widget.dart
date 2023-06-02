@@ -453,10 +453,10 @@ class _AdminPageWidgetState extends State<AdminPageWidget> {
                           FFButtonWidget(
                             onPressed: () async {
                               final librosCreateData = createLibrosRecordData(
-                                autor: '',
-                                descripcion: '',
-                                rate: '',
-                                titulo: '',
+                                autor: _model.authorController.text,
+                                descripcion: _model.descriptionController.text,
+                                rate: _model.rateController.text,
+                                titulo: _model.titleController.text,
                                 image: _model.uploadedFileUrl,
                               );
                               await LibrosRecord.collection

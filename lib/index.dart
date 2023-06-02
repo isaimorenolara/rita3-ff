@@ -15,3 +15,4 @@ export '/pages/admin_page/admin_page_widget.dart' show AdminPageWidget;
 export '/pages/c_lista_libro/c_lista_libro_widget.dart' show CListaLibroWidget;
 export '/pages/w_lista_libro/w_lista_libro_widget.dart' show WListaLibroWidget;
 export '/pages/about_this/about_this_widget.dart' show AboutThisWidget;
+export '/pages/all_books/all_books_widget.dart' show AllBooksWidget;

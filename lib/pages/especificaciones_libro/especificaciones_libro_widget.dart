@@ -101,176 +101,176 @@ class _EspecificacionesLibroWidgetState
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 20.0, 0.0, 0.0),
-                          child: Text(
-                            especificacionesLibroLibrosRecord.titulo,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  fontSize: 25.0,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                          ),
-                        ),
-
-                        // You will have to add an action on this rich text to go to your login page.
-                        RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: 'by',
-                                style: TextStyle(),
-                              ),
-                              TextSpan(
-                                text: especificacionesLibroLibrosRecord.autor,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      color:
-                                          FlutterFlowTheme.of(context).accent1,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                              )
-                            ],
-                            style: FlutterFlowTheme.of(context).bodyMedium,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 20.0, 0.0, 20.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(0.0),
-                            child: Image.network(
-                              especificacionesLibroLibrosRecord.image,
-                              width: 119.0,
-                              height: 157.0,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 370.0,
-                          child: Divider(
-                            thickness: 1.0,
-                            color: Color(0xFF9A9A9A),
-                          ),
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.star_rate_rounded,
-                              color: FlutterFlowTheme.of(context).warning,
-                              size: 24.0,
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  4.0, 0.0, 0.0, 0.0),
-                              child: Text(
-                                especificacionesLibroLibrosRecord.rate,
-                                style: FlutterFlowTheme.of(context).labelMedium,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          width: 370.0,
-                          child: Divider(
-                            thickness: 1.0,
-                            color: Color(0xFF9A9A9A),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 15.0, 0.0, 0.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              context.pushNamed(
-                                'GuardarEn',
-                                queryParams: {
-                                  'libro': serializeParam(
-                                    widget.libro,
-                                    ParamType.DocumentReference,
-                                  ),
-                                }.withoutNulls,
-                              );
-                            },
-                            text: 'Save',
-                            options: FFButtonOptions(
-                              height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                  ),
-                              elevation: 3.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 20.0, 0.0, 0.0),
-                          child: Text(
-                            'Book Description',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 140.0,
-                          child: Divider(
-                            thickness: 3.0,
-                            color: Color(0xFF9A9A9A),
-                          ),
-                        ),
-                        Container(
-                          width: 315.0,
-                          height: 232.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                          ),
-                          child: Padding(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                30.0, 20.0, 30.0, 40.0),
-                            child: AutoSizeText(
-                              especificacionesLibroLibrosRecord.descripcion,
-                              textAlign: TextAlign.justify,
+                                0.0, 20.0, 0.0, 0.0),
+                            child: Text(
+                              especificacionesLibroLibrosRecord.titulo,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Readex Pro',
-                                    fontSize: 12.0,
+                                    fontSize: 25.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                             ),
                           ),
-                        ),
-                      ],
+
+                          // You will have to add an action on this rich text to go to your login page.
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'by',
+                                  style: TextStyle(),
+                                ),
+                                TextSpan(
+                                  text: especificacionesLibroLibrosRecord.autor,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent1,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                )
+                              ],
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 20.0, 0.0, 20.0),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(0.0),
+                              child: Image.network(
+                                especificacionesLibroLibrosRecord.image,
+                                width: 119.0,
+                                height: 157.0,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          Divider(
+                            thickness: 1.0,
+                            color: Color(0xFF9A9A9A),
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.star_rate_rounded,
+                                color: FlutterFlowTheme.of(context).warning,
+                                size: 24.0,
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    4.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  especificacionesLibroLibrosRecord.rate,
+                                  style:
+                                      FlutterFlowTheme.of(context).labelMedium,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            width: 370.0,
+                            child: Divider(
+                              thickness: 1.0,
+                              color: Color(0xFF9A9A9A),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 15.0, 0.0, 0.0),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                context.pushNamed(
+                                  'GuardarEn',
+                                  queryParams: {
+                                    'libro': serializeParam(
+                                      widget.libro,
+                                      ParamType.DocumentReference,
+                                    ),
+                                  }.withoutNulls,
+                                );
+                              },
+                              text: 'Save',
+                              options: FFButtonOptions(
+                                height: 40.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 0.0, 24.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).primary,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: Colors.white,
+                                    ),
+                                elevation: 3.0,
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 20.0, 0.0, 0.0),
+                            child: Text(
+                              'Book Description',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 140.0,
+                            child: Divider(
+                              thickness: 3.0,
+                              color: Color(0xFF9A9A9A),
+                            ),
+                          ),
+                          Container(
+                            width: double.infinity,
+                            height: 232.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  30.0, 20.0, 30.0, 40.0),
+                              child: AutoSizeText(
+                                especificacionesLibroLibrosRecord.descripcion,
+                                textAlign: TextAlign.justify,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],

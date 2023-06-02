@@ -151,6 +151,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'aboutThis',
           path: '/aboutThis',
           builder: (context, params) => AboutThisWidget(),
+        ),
+        FFRoute(
+          name: 'AllBooks',
+          path: '/allBooks',
+          builder: (context, params) => AllBooksWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,

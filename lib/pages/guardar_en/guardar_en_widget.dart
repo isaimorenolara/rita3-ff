@@ -493,12 +493,12 @@ class _GuardarEnWidgetState extends State<GuardarEnWidget> {
                                   50.0, 0.0, 0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
-                                  final readCreateData = createReadRecordData(
+                                  final wantCreateData = createWantRecordData(
                                     libro: widget.libro,
                                   );
-                                  await ReadRecord.collection
+                                  await WantRecord.collection
                                       .doc()
-                                      .set(readCreateData);
+                                      .set(wantCreateData);
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(

@@ -247,7 +247,7 @@ class _RListaLibrosWidgetState extends State<RListaLibrosWidget> {
                                           size: 24.0,
                                         ),
                                         onPressed: () async {
-                                          await listViewReadRecord.libro!
+                                          await listViewReadRecord.reference
                                               .delete();
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
