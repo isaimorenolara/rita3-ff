@@ -59,251 +59,292 @@ class _ReadBooksWidgetState extends State<ReadBooksWidget> {
                         Expanded(
                           child: TabBarView(
                             children: [
-                              Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 25.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 0.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Explore by genre',
-                                            style: FlutterFlowTheme.of(context)
-                                                .labelMedium
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  fontSize: 24.0,
-                                                ),
+                              SingleChildScrollView(
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 25.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              'Explore by genre',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        fontSize: 24.0,
+                                                      ),
+                                            ),
                                           ),
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      width: double.infinity,
+                                      height: 490.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child:
+                                          StreamBuilder<List<CategoriasRecord>>(
+                                        stream: queryCategoriasRecord(),
+                                        builder: (context, snapshot) {
+                                          // Customize what your widget looks like when it's loading.
+                                          if (!snapshot.hasData) {
+                                            return Center(
+                                              child: SizedBox(
+                                                width: 50.0,
+                                                height: 50.0,
+                                                child:
+                                                    CircularProgressIndicator(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                          List<CategoriasRecord>
+                                              gridViewCategoriasRecordList =
+                                              snapshot.data!;
+                                          return GridView.builder(
+                                            padding: EdgeInsets.zero,
+                                            gridDelegate:
+                                                SliverGridDelegateWithFixedCrossAxisCount(
+                                              crossAxisCount: 2,
+                                              crossAxisSpacing: 10.0,
+                                              mainAxisSpacing: 10.0,
+                                              childAspectRatio: 1.7,
+                                            ),
+                                            scrollDirection: Axis.vertical,
+                                            itemCount:
+                                                gridViewCategoriasRecordList
+                                                    .length,
+                                            itemBuilder:
+                                                (context, gridViewIndex) {
+                                              final gridViewCategoriasRecord =
+                                                  gridViewCategoriasRecordList[
+                                                      gridViewIndex];
+                                              return InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  context.pushNamed(
+                                                    'Seccion',
+                                                    queryParams: {
+                                                      'categoria':
+                                                          serializeParam(
+                                                        gridViewCategoriasRecord
+                                                            .reference,
+                                                        ParamType
+                                                            .DocumentReference,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
+                                                },
+                                                child: Container(
+                                                  width: 50.0,
+                                                  height: 50.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        blurRadius: 4.0,
+                                                        color:
+                                                            Color(0x33000000),
+                                                        offset:
+                                                            Offset(0.0, 2.0),
+                                                      )
+                                                    ],
+                                                  ),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Stack(
+                                                        children: [
+                                                          ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        0.0),
+                                                            child:
+                                                                Image.network(
+                                                              gridViewCategoriasRecord
+                                                                  .image,
+                                                              width: double
+                                                                  .infinity,
+                                                              height: 235.0,
+                                                              fit: BoxFit.cover,
+                                                            ),
+                                                          ),
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, -0.7),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          190.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                gridViewCategoriasRecord
+                                                                    .nombre,
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .start,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryBackground,
+                                                                      fontSize:
+                                                                          18.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed('allCategories');
+                                      },
+                                      child: Container(
+                                        width: double.infinity,
+                                        height: 65.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
                                         ),
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    width: double.infinity,
-                                    height: 490.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
-                                    child:
-                                        StreamBuilder<List<CategoriasRecord>>(
-                                      stream: queryCategoriasRecord(),
-                                      builder: (context, snapshot) {
-                                        // Customize what your widget looks like when it's loading.
-                                        if (!snapshot.hasData) {
-                                          return Center(
-                                            child: SizedBox(
-                                              width: 50.0,
-                                              height: 50.0,
-                                              child: CircularProgressIndicator(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  context.pushNamed(
+                                                      'allCategories');
+                                                },
+                                                child: Container(
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      0.5,
+                                                  height: 100.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                  ),
+                                                  child: Text(
+                                                    'All categories',
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          fontSize: 18.0,
+                                                        ),
+                                                  ),
+                                                ),
                                               ),
                                             ),
-                                          );
-                                        }
-                                        List<CategoriasRecord>
-                                            gridViewCategoriasRecordList =
-                                            snapshot.data!;
-                                        return GridView.builder(
-                                          padding: EdgeInsets.zero,
-                                          gridDelegate:
-                                              SliverGridDelegateWithFixedCrossAxisCount(
-                                            crossAxisCount: 2,
-                                            crossAxisSpacing: 10.0,
-                                            mainAxisSpacing: 10.0,
-                                            childAspectRatio: 1.7,
-                                          ),
-                                          scrollDirection: Axis.vertical,
-                                          itemCount:
-                                              gridViewCategoriasRecordList
-                                                  .length,
-                                          itemBuilder:
-                                              (context, gridViewIndex) {
-                                            final gridViewCategoriasRecord =
-                                                gridViewCategoriasRecordList[
-                                                    gridViewIndex];
-                                            return InkWell(
+                                            InkWell(
                                               splashColor: Colors.transparent,
                                               focusColor: Colors.transparent,
                                               hoverColor: Colors.transparent,
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                context.pushNamed(
-                                                  'Seccion',
-                                                  queryParams: {
-                                                    'categoria': serializeParam(
-                                                      gridViewCategoriasRecord
-                                                          .reference,
-                                                      ParamType
-                                                          .DocumentReference,
-                                                    ),
-                                                  }.withoutNulls,
-                                                );
+                                                context.pushNamed('AllBooks');
                                               },
                                               child: Container(
-                                                width: 50.0,
-                                                height: 50.0,
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.5,
+                                                height: 100.0,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
-                                                  boxShadow: [
-                                                    BoxShadow(
-                                                      blurRadius: 4.0,
-                                                      color: Color(0x33000000),
-                                                      offset: Offset(0.0, 2.0),
-                                                    )
-                                                  ],
                                                 ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Stack(
-                                                      children: [
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                          child: Image.network(
-                                                            gridViewCategoriasRecord
-                                                                .image,
-                                                            width:
-                                                                double.infinity,
-                                                            height: 235.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                        Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, -0.7),
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        190.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              gridViewCategoriasRecord
-                                                                  .nombre,
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .start,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Readex Pro',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondaryBackground,
-                                                                    fontSize:
-                                                                        18.0,
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ],
+                                                child: Text(
+                                                  'All books',
+                                                  textAlign: TextAlign.center,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        fontSize: 18.0,
+                                                      ),
                                                 ),
                                               ),
-                                            );
-                                          },
-                                        );
-                                      },
-                                    ),
-                                  ),
-                                  InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed('allCategories');
-                                    },
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: 65.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: [
-                                          Text(
-                                            'All categories',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  fontSize: 18.0,
-                                                ),
-                                          ),
-                                        ],
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed('AllBooks');
-                                    },
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: 65.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: [
-                                          Text(
-                                            'All books',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  fontSize: 18.0,
-                                                ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                               Container(
                                 width: 100.0,
