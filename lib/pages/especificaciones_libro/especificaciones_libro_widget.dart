@@ -97,7 +97,7 @@ class _EspecificacionesLibroWidgetState
                 children: [
                   Container(
                     width: double.infinity,
-                    height: 780.0,
+                    height: 750.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),

@@ -93,7 +93,7 @@ class _ReadBooksWidgetState extends State<ReadBooksWidget> {
                                     ),
                                     Container(
                                       width: double.infinity,
-                                      height: 490.0,
+                                      height: 380.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
@@ -127,7 +127,7 @@ class _ReadBooksWidgetState extends State<ReadBooksWidget> {
                                               crossAxisCount: 2,
                                               crossAxisSpacing: 10.0,
                                               mainAxisSpacing: 10.0,
-                                              childAspectRatio: 1.7,
+                                              childAspectRatio: 1.0,
                                             ),
                                             scrollDirection: Axis.vertical,
                                             itemCount:
@@ -198,7 +198,7 @@ class _ReadBooksWidgetState extends State<ReadBooksWidget> {
                                                                   .image,
                                                               width: double
                                                                   .infinity,
-                                                              height: 235.0,
+                                                              height: 180.0,
                                                               fit: BoxFit.cover,
                                                             ),
                                                           ),
@@ -211,7 +211,7 @@ class _ReadBooksWidgetState extends State<ReadBooksWidget> {
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
-                                                                          190.0,
+                                                                          145.0,
                                                                           0.0,
                                                                           0.0),
                                                               child: Text(
@@ -246,87 +246,73 @@ class _ReadBooksWidgetState extends State<ReadBooksWidget> {
                                         },
                                       ),
                                     ),
-                                    InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.pushNamed('allCategories');
-                                      },
-                                      child: Container(
-                                        width: double.infinity,
-                                        height: 65.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                        ),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          children: [
-                                            Align(
+                                    Container(
+                                      width: double.infinity,
+                                      height: 100.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              context.pushNamed('AllBooks');
+                                            },
+                                            child: Container(
+                                              width: double.infinity,
+                                              height: 50.0,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                              ),
                                               alignment: AlignmentDirectional(
                                                   0.0, 0.0),
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  context.pushNamed(
-                                                      'allCategories');
-                                                },
-                                                child: Container(
-                                                  width: MediaQuery.of(context)
-                                                          .size
-                                                          .width *
-                                                      0.5,
-                                                  height: 100.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                  ),
-                                                  child: Text(
-                                                    'All categories',
-                                                    textAlign: TextAlign.center,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
+                                              child: Text(
+                                                'All books',
+                                                textAlign: TextAlign.center,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               'Readex Pro',
                                                           fontSize: 18.0,
                                                         ),
-                                                  ),
-                                                ),
                                               ),
                                             ),
-                                            InkWell(
+                                          ),
+                                          Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: InkWell(
                                               splashColor: Colors.transparent,
                                               focusColor: Colors.transparent,
                                               hoverColor: Colors.transparent,
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                context.pushNamed('AllBooks');
+                                                context
+                                                    .pushNamed('allCategories');
                                               },
                                               child: Container(
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.5,
-                                                height: 100.0,
+                                                width: double.infinity,
+                                                height: 50.0,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
                                                 ),
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
                                                 child: Text(
-                                                  'All books',
+                                                  'All categories',
                                                   textAlign: TextAlign.center,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -339,8 +325,8 @@ class _ReadBooksWidgetState extends State<ReadBooksWidget> {
                                                 ),
                                               ),
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ],

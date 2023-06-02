@@ -140,136 +140,155 @@ class _RListaLibrosWidgetState extends State<RListaLibrosWidget> {
                                   );
                                 }
                                 final previewLibroLibrosRecord = snapshot.data!;
-                                return Container(
-                                  width: 100.0,
-                                  height: 100.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(0.0),
-                                        child: Image.network(
-                                          previewLibroLibrosRecord.image,
-                                          width: 70.0,
-                                          height: 85.0,
-                                          fit: BoxFit.cover,
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed(
+                                      'EspecificacionesLibro',
+                                      queryParams: {
+                                        'libro': serializeParam(
+                                          previewLibroLibrosRecord.reference,
+                                          ParamType.DocumentReference,
                                         ),
-                                      ),
-                                      Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            previewLibroLibrosRecord.titulo,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                      }.withoutNulls,
+                                    );
+                                  },
+                                  child: Container(
+                                    width: 100.0,
+                                    height: 100.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(0.0),
+                                          child: Image.network(
+                                            previewLibroLibrosRecord.image,
+                                            width: 70.0,
+                                            height: 85.0,
+                                            fit: BoxFit.cover,
                                           ),
-
-                                          // You will have to add an action on this rich text to go to your login page.
-                                          RichText(
-                                            text: TextSpan(
-                                              children: [
-                                                TextSpan(
-                                                  text: 'by',
-                                                  style: TextStyle(),
-                                                ),
-                                                TextSpan(
-                                                  text: previewLibroLibrosRecord
-                                                      .autor,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .accent1,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                                )
-                                              ],
+                                        ),
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              previewLibroLibrosRecord.titulo,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium,
                                             ),
-                                          ),
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Icon(
-                                                Icons.star_rate_rounded,
-                                                color:
+
+                                            // You will have to add an action on this rich text to go to your login page.
+                                            RichText(
+                                              text: TextSpan(
+                                                children: [
+                                                  TextSpan(
+                                                    text: 'by',
+                                                    style: TextStyle(),
+                                                  ),
+                                                  TextSpan(
+                                                    text:
+                                                        previewLibroLibrosRecord
+                                                            .autor,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .accent1,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                                  )
+                                                ],
+                                                style:
                                                     FlutterFlowTheme.of(context)
-                                                        .warning,
-                                                size: 24.0,
+                                                        .bodyMedium,
                                               ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        4.0, 0.0, 0.0, 0.0),
-                                                child: Text(
-                                                  previewLibroLibrosRecord.rate,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelMedium,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                      FlutterFlowIconButton(
-                                        borderColor:
-                                            FlutterFlowTheme.of(context).info,
-                                        borderRadius: 20.0,
-                                        borderWidth: 1.0,
-                                        buttonSize: 40.0,
-                                        fillColor:
-                                            FlutterFlowTheme.of(context).info,
-                                        icon: FaIcon(
-                                          FontAwesomeIcons.trash,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          size: 24.0,
-                                        ),
-                                        onPressed: () async {
-                                          await listViewReadRecord.reference
-                                              .delete();
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                            SnackBar(
-                                              content: Text(
-                                                'Erased successfully',
-                                                style: TextStyle(
+                                            ),
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Icon(
+                                                  Icons.star_rate_rounded,
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .primaryText,
+                                                      .warning,
+                                                  size: 24.0,
                                                 ),
-                                              ),
-                                              duration:
-                                                  Duration(milliseconds: 4000),
-                                              backgroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondary,
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          4.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    previewLibroLibrosRecord
+                                                        .rate,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .labelMedium,
+                                                  ),
+                                                ),
+                                              ],
                                             ),
-                                          );
-                                        },
-                                      ),
-                                    ],
+                                          ],
+                                        ),
+                                        FlutterFlowIconButton(
+                                          borderColor:
+                                              FlutterFlowTheme.of(context).info,
+                                          borderRadius: 20.0,
+                                          borderWidth: 1.0,
+                                          buttonSize: 40.0,
+                                          fillColor:
+                                              FlutterFlowTheme.of(context).info,
+                                          icon: FaIcon(
+                                            FontAwesomeIcons.trash,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            size: 24.0,
+                                          ),
+                                          onPressed: () async {
+                                            await listViewReadRecord.reference
+                                                .delete();
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Erased successfully',
+                                                  style: TextStyle(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                  ),
+                                                ),
+                                                duration: Duration(
+                                                    milliseconds: 4000),
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                            );
+                                          },
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 );
                               },
